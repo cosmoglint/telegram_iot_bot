@@ -22,10 +22,12 @@ def handle(msg):
     print('Got command: %s' % command)
 
     if command == 'on':
-       bot.sendMessage(chat_id,on(11))
+       bot.sendMessage(chat_id, command)
+       GPIO.output(pin,GPIO.HIGH)
        #on(11)
-    elif command =='off':
-       bot.sendMessage(chat_id,off(11))
+    elif command == 'off':
+       bot.sendMessage(chat_id, command)
+       GPIO.output(pin,GPIO.LOW)
        #off(11)
 
 bot = telepot.Bot('903555004:AAEMh0BWCVbIjh2pv-yPWDC7sjo3vFZdpRI')
