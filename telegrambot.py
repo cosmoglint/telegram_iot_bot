@@ -22,10 +22,10 @@ def handle(msg):
     print('Got command: %s' % command)
 
     if command == 'on':
-       bot.sendMessage(chat_id)
+       bot.sendMessage(chat_id,parse_mode=telegram.ParseMode.MARKDOWN)
        on(11)
     elif command =='off':
-       bot.sendMessage(chat_id)
+       bot.sendMessage(chat_id,parse_mode=telegram.ParseMode.MARKDOWN)
        off(11)
 
 bot = telepot.Bot('903555004:AAEMh0BWCVbIjh2pv-yPWDC7sjo3vFZdpRI')
