@@ -11,9 +11,9 @@ def off(pin):
         GPIO.output(pin,GPIO.LOW)
         return
 # to use Raspberry Pi board pin numbers
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 # set up GPIO output channel
-GPIO.setup(11, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
@@ -23,11 +23,11 @@ def handle(msg):
 
     if command == 'on':
        bot.sendMessage(chat_id, command)
-       GPIO.output(11,GPIO.HIGH)
+       GPIO.output(18,GPIO.HIGH)
        #on(11)
     elif command == 'off':
        bot.sendMessage(chat_id, command)
-       GPIO.output(11,GPIO.LOW)
+       GPIO.output(18,GPIO.LOW)
        #off(11)
 
 bot = telepot.Bot('903555004:AAEMh0BWCVbIjh2pv-yPWDC7sjo3vFZdpRI')
