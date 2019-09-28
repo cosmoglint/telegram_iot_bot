@@ -24,11 +24,11 @@ def handle(msg):
 
         if command == 'off' or command == 'Off' or command == 'OFF':
             #bot.sendMessage(chat_id,"turning" + command)
-            bot.sendMessage(chat_id,"turning On")
+            bot.sendMessage(chat_id,"turning Off")
             GPIO.output(18,GPIO.HIGH)
             #on(11)
         elif command == 'on' or command == 'On' or command == 'ON':
-            bot.sendMessage(chat_id,"turning Off")
+            bot.sendMessage(chat_id,"turning On")
             GPIO.output(18,GPIO.LOW)
             #off(11)
         else:
