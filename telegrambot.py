@@ -17,18 +17,23 @@ GPIO.setup(18, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
-    command = msg['text']
+    if chat_id == "@Odddoodle":
+        command = msg['text']
+        print('Got command: %s' % command)
 
-    print('Got command: %s' % command)
-
-    if command == 'on':
-       bot.sendMessage(chat_id, command)
-       GPIO.output(18,GPIO.HIGH)
-       #on(11)
-    elif command == 'off':
-       bot.sendMessage(chat_id, command)
-       GPIO.output(18,GPIO.LOW)
-       #off(11)
+        if command == 'off' or command == 'Off' or command == 'OFF':
+            #bot.sendMessage(chat_id,"turning" + command)
+            bot.sendMessage(chat_id,"turning On")
+            GPIO.output(18,GPIO.HIGH)
+            #on(11)
+        elif command == 'on' or command == 'On' or command == 'ON':
+            bot.sendMessage(chat_id,"turning Off")
+            GPIO.output(18,GPIO.LOW)
+            #off(11)
+        else:
+            bot.sendMessage(chat_id,"sorry cont do nothin")
+    else:
+        print("unauthorized!")
 
 bot = telepot.Bot('903555004:AAEMh0BWCVbIjh2pv-yPWDC7sjo3vFZdpRI')
 bot.message_loop(handle)
