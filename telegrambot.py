@@ -17,7 +17,9 @@ GPIO.setup(18, GPIO.OUT)
 
 def handle(msg):
     chat_id = msg['chat']['id']
-    if chat_id == "Odddoodle":
+    thechat = update.message.chat_id
+    
+    if chat_id == "Odddoodle" or thechat == "Odddoodle":
         command = msg['text']
         print('Got command: %s' % command)
 
