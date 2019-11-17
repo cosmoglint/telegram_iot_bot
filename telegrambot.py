@@ -15,10 +15,14 @@ GPIO.setmode(GPIO.BCM)
 # set up GPIO output channel
 GPIO.setup(18, GPIO.OUT)
 
+chatd = ''
+botd = ''
+#input chat id here because i dont want you stealin it
+
 def handle(msg):
     chat_id = msg['chat']['id']
     
-    if chat_id == 558581271:
+    if chat_id == chatd:
         command = msg['text']
         print('Got command: %s' % command)
 
@@ -36,7 +40,7 @@ def handle(msg):
     else:
         print("unauthorized!")
 
-bot = telepot.Bot('903555004:AAEMh0BWCVbIjh2pv-yPWDC7sjo3vFZdpRI')
+bot = telepot.Bot(botd)
 bot.message_loop(handle)
 print('I am listening...')
 
